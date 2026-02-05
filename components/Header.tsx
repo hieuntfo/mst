@@ -16,16 +16,16 @@ const Header = () => {
       {/* ZONE A: GLOBAL NAVIGATION */}
       
       {/* Top Bar */}
-      <div className="bg-most-secondary-bg text-most-navy text-xs border-b border-gray-200">
+      <div className="bg-most-navy text-white text-xs">
         <div className="container mx-auto px-4 py-1.5 flex justify-between items-center">
-          <a href="#" className="font-semibold hover:text-most-red transition-colors">CỔNG THÔNG TIN ĐIỆN TỬ CHÍNH PHỦ</a>
+          <a href="#" className="font-semibold hover:text-most-yellow transition-colors">CỔNG THÔNG TIN ĐIỆN TỬ CHÍNH PHỦ</a>
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">
-              <button className="font-bold text-most-navy">VN</button>
-              <span>/</span>
-              <button className="text-gray-400 hover:text-most-navy transition-colors">EN</button>
+              <button className="font-bold">VN</button>
+              <span className="opacity-50">/</span>
+              <button className="opacity-70 hover:opacity-100 transition-opacity">EN</button>
             </div>
-            <a href="#" className="font-medium hover:text-most-red transition-colors hidden sm:block">Dành cho Cán bộ</a>
+            <a href="#" className="font-medium hover:text-most-yellow transition-colors hidden sm:block">Dành cho Cán bộ</a>
           </div>
         </div>
       </div>

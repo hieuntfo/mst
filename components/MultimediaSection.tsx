@@ -3,38 +3,43 @@ import ChevronLeftIcon from './icons/ChevronLeftIcon';
 import ChevronRightIcon from './icons/ChevronRightIcon';
 import PlayIcon from './icons/PlayIcon';
 
-const videos = [
-  { title: "Toàn cảnh Techfest 2026 và hệ sinh thái đổi mới sáng tạo", duration: "12:14", color: "bg-blue-400" },
-  { title: "Hội thảo quốc tế về vai trò của KH&CN trong chuyển đổi số", duration: "2:07", color: "bg-red-400" },
-  { title: "Diễn đàn Trí tuệ nhân tạo (AI) quốc gia: Thách thức & Cơ hội", duration: "45:22", color: "bg-purple-400" },
-  { title: "Doanh nghiệp KHCN: Từ chính sách đến thực tiễn", duration: "8:51", color: "bg-green-400" },
-  { title: "Gặp gỡ các nhà khoa học trẻ tiêu biểu năm 2026", duration: "15:03", color: "bg-yellow-400" },
+const videoData = [
+  { id: 1, title: "Toàn cảnh Techfest 2026 và hệ sinh thái đổi mới sáng tạo", duration: "12:14", color: "bg-blue-400" },
+  { id: 2, title: "Hội thảo quốc tế về vai trò của KH&CN trong chuyển đổi số", duration: "2:07", color: "bg-red-400" },
+  { id: 3, title: "Diễn đàn Trí tuệ nhân tạo (AI) quốc gia: Thách thức & Cơ hội", duration: "45:22", color: "bg-purple-400" },
+  { id: 4, title: "Doanh nghiệp KHCN: Từ chính sách đến thực tiễn", duration: "8:51", color: "bg-green-400" },
+  { id: 5, title: "Gặp gỡ các nhà khoa học trẻ tiêu biểu năm 2026", duration: "15:03", color: "bg-yellow-400" },
 ];
 
-// Fix: Explicitly type VideoCard as a React.FC to ensure TypeScript
-// correctly interprets it as a React component and handles special props like `key`,
-// resolving the type assignment error when spreading props in the map function.
 interface VideoCardProps {
-  title: string;
-  duration: string;
-  color: string;
+  video: typeof videoData[0];
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({ title, duration, color }) => (
-  <div className="flex-shrink-0 w-80 mr-6 snap-start">
-    <div className={`relative aspect-video rounded-lg ${color} group cursor-pointer overflow-hidden`}>
+const VideoCard: React.FC<VideoCardProps> = ({ video }) => (
+  <div className={'flex-shrink-0 w-80 md:w-96 mr-6 snap-start'}>
+    <div className={`relative aspect-video rounded-lg ${video.color} group cursor-pointer overflow-hidden shadow-lg`}>
       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="bg-white/20 text-white p-3 rounded-full backdrop-blur-sm transform transition-all group-hover:scale-110">
-          <PlayIcon className="h-8 w-8" />
+          <PlayIcon className={"h-10 w-10"} />
         </div>
       </div>
       <span className="absolute bottom-2 right-2 bg-black/60 text-white text-xs font-semibold px-2 py-0.5 rounded">
-        {duration}
+        {video.duration}
       </span>
     </div>
-    <h3 className="text-white font-semibold mt-3">{title}</h3>
+    <h3 className={`text-most-navy font-semibold mt-3 text-lg`}>{video.title}</h3>
   </div>
+);
+
+const Particle = () => (
+  <>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+  </>
 );
 
 const MultimediaSection = () => {
@@ -42,33 +47,71 @@ const MultimediaSection = () => {
 
     const scroll = (direction: 'left' | 'right') => {
         if (scrollRef.current) {
-            const scrollAmount = direction === 'left' ? -344 : 344; // w-80 (320px) + mr-6 (24px)
+            const scrollAmount = direction === 'left' ? -408 : 408; // w-96 (384px) + mr-6 (24px)
             scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
     return (
-        <section className="bg-most-navy py-20">
+        <section className="py-20">
+            <style>{`
+              @keyframes move {
+                100% {
+                    transform: translate3d(0, 0, 1px) rotate(360deg);
+                }
+              }
+
+              .particle-container {
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: absolute;
+                overflow: hidden;
+              }
+
+              .particle {
+                position: absolute;
+                border-radius: 50%;
+                animation: move 25s linear infinite;
+              }
+              .particle:nth-child(1) { width: 7px; height: 7px; background: rgba(255,255,255,0.3); left: 15%; top: 20%; animation-duration: 15s; }
+              .particle:nth-child(2) { width: 5px; height: 5px; background: rgba(255,255,255,0.4); left: 80%; top: 30%; animation-duration: 22s; }
+              .particle:nth-child(3) { width: 10px; height: 10px; background: rgba(255,255,255,0.2); left: 50%; top: 70%; animation-duration: 18s; }
+              .particle:nth-child(4) { width: 6px; height: 6px; background: rgba(255,255,255,0.5); left: 30%; top: 90%; animation-duration: 25s; }
+              .particle:nth-child(5) { width: 8px; height: 8px; background: rgba(255,255,255,0.3); left: 90%; top: 80%; animation-duration: 20s; }
+            `}</style>
             <div className="container mx-auto">
-                <div className="flex justify-between items-center mb-8">
-                    <h2 className="font-sans text-4xl font-extrabold text-white">Multimedia</h2>
-                    <div className="flex space-x-2">
-                        <button onClick={() => scroll('left')} className="bg-white/10 text-white p-2 rounded-full hover:bg-white/20 transition-colors">
-                            <ChevronLeftIcon className="h-6 w-6" />
-                        </button>
-                        <button onClick={() => scroll('right')} className="bg-white/10 text-white p-2 rounded-full hover:bg-white/20 transition-colors">
-                            <ChevronRightIcon className="h-6 w-6" />
-                        </button>
+                <div className="relative bg-gradient-to-br from-sky-200 via-indigo-300 to-purple-400 rounded-2xl p-8 md:p-12 overflow-hidden">
+                    <div className="particle-container">
+                      <Particle />
                     </div>
-                </div>
-                <div ref={scrollRef} className="flex overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory" style={{ scrollbarWidth: 'none', '-ms-overflow-style': 'none' }}>
-                    {videos.map((video, index) => (
-                        <VideoCard key={index} {...video} />
-                    ))}
+                    <div className="relative z-10">
+                        <div className="flex flex-col md:flex-row justify-between md:items-center mb-6">
+                            <div>
+                                <h2 className="font-sans text-4xl font-extrabold text-most-navy">Video Nổi Bật <span className="opacity-60">&rsaquo;</span></h2>
+                                <p className="text-most-navy/80 mt-2 max-w-xl">Cập nhật các sự kiện, hội thảo và thành tựu mới nhất của Bộ Khoa học và Công nghệ qua các video tường thuật.</p>
+                            </div>
+                            <div className="flex-shrink-0 flex space-x-2 mt-4 md:mt-0">
+                                <button onClick={() => scroll('left')} className="bg-white/30 text-most-navy p-2 rounded-full hover:bg-white/50 transition-colors backdrop-blur-sm">
+                                    <ChevronLeftIcon className="h-6 w-6" />
+                                </button>
+                                <button onClick={() => scroll('right')} className="bg-white/30 text-most-navy p-2 rounded-full hover:bg-white/50 transition-colors backdrop-blur-sm">
+                                    <ChevronRightIcon className="h-6 w-6" />
+                                </button>
+                            </div>
+                        </div>
+
+                        <div ref={scrollRef} className="flex overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory -mx-8 md:-mx-12 px-8 md:px-12" style={{ scrollbarWidth: 'none', '-ms-overflow-style': 'none' }}>
+                            {videoData.map((video) => (
+                                <VideoCard key={video.id} video={video} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     );
-}
+};
 
 export default MultimediaSection;

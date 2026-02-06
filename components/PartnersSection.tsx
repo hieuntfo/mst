@@ -51,10 +51,10 @@ const LogoCarousel = ({ title, items }: { title: string, items: { name: string, 
             ))}
           </div>
           <div className="flex space-x-2">
-            <button onClick={handlePrev} className="bg-gray-100 text-gray-600 p-2 rounded-full hover:bg-gray-200 transition-colors">
+            <button onClick={handlePrev} className="bg-gray-200 text-gray-700 p-2 rounded-full hover:bg-gray-300 transition-colors">
                 <ChevronLeftIcon className="h-5 w-5" />
             </button>
-            <button onClick={handleNext} className="bg-gray-100 text-gray-600 p-2 rounded-full hover:bg-gray-200 transition-colors">
+            <button onClick={handleNext} className="bg-gray-200 text-gray-700 p-2 rounded-full hover:bg-gray-300 transition-colors">
                 <ChevronRightIcon className="h-5 w-5" />
             </button>
           </div>
@@ -64,7 +64,7 @@ const LogoCarousel = ({ title, items }: { title: string, items: { name: string, 
         {/* Using a key on the grid div to force re-render on page change for a simple fade effect */}
         {visibleItems.map((item) => (
            <div key={item.name} className="animate-[fadeIn_0.5s_ease-in-out]">
-             <a href="#" className="block p-4 border border-gray-200 rounded-lg text-center hover:shadow-lg hover:border-most-red transition-all h-full flex flex-col items-center justify-center">
+             <a href="#" className="block p-4 border border-gray-200 bg-white rounded-lg text-center hover:shadow-lg hover:border-most-red transition-all h-full flex flex-col items-center justify-center">
                 <div className={`w-20 h-12 rounded ${item.logoColor} mb-3`} aria-label={`${item.name} logo placeholder`}></div>
                 <p className="text-sm font-semibold text-gray-700">{item.name}</p>
              </a>

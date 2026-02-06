@@ -31,9 +31,6 @@ interface ChartBarProps {
     isAnimated: boolean;
 }
 
-// Fix: Explicitly type ChartBar as a React.FC (Functional Component).
-// This ensures TypeScript correctly interprets it as a React component and handles
-// special props like `key` correctly, resolving the type assignment error.
 const ChartBar: React.FC<ChartBarProps> = ({ value, maxValue, color, isAnimated }) => {
     const height = (value / maxValue) * 100;
     const animatedValue = useCountUp(value);
@@ -45,10 +42,9 @@ const ChartBar: React.FC<ChartBarProps> = ({ value, maxValue, color, isAnimated 
                 style={{
                     height: isAnimated ? `${height}%` : '0%',
                     backgroundColor: color,
-                    boxShadow: `0 0 4px ${color}, 0 0 8px ${color}80, 0 0 12px ${color}40`,
                 }}
             ></div>
-            <div className="text-white text-sm font-bold mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="text-white text-sm font-bold mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-8 bg-most-navy px-2 py-1 rounded">
                 {animatedValue}
             </div>
         </div>
@@ -72,11 +68,11 @@ const DigitalChart = ({ data }: DigitalChartProps) => {
     }, []);
 
     return (
-        <div className="w-full h-80 bg-most-navy p-6 rounded-lg shadow-2xl border border-blue-900/50 flex flex-col font-sans relative overflow-hidden">
+        <div className="w-full h-80 bg-white p-6 rounded-lg shadow-lg border border-gray-200 flex flex-col font-sans relative overflow-hidden">
             <div className="absolute inset-0 p-6 z-0">
-                <div className="h-full w-full border-l border-r border-blue-800/30">
+                <div className="h-full w-full border-l border-r border-gray-200">
                     {Array.from({ length: 4 }).map((_, i) => (
-                        <div key={i} className={`h-1/4 ${i !== 0 ? 'border-t border-blue-800/30' : ''}`}></div>
+                        <div key={i} className={`h-1/4 ${i !== 0 ? 'border-t border-gray-200' : ''}`}></div>
                     ))}
                 </div>
             </div>
@@ -84,7 +80,7 @@ const DigitalChart = ({ data }: DigitalChartProps) => {
             <div className="relative z-10 flex-grow flex justify-around items-end gap-x-4">
                 {data.map((point) => (
                     <div key={point.name} className="h-full flex-1 flex flex-col-reverse items-center">
-                        <div className="text-gray-400 text-xs mt-3 h-4">{point.name}</div>
+                        <div className="text-gray-500 text-xs mt-3 h-4">{point.name}</div>
                         <div className="flex-grow w-full flex items-end justify-center gap-x-2">
                              {keys.map((key, index) => (
                                 <ChartBar
@@ -103,8 +99,8 @@ const DigitalChart = ({ data }: DigitalChartProps) => {
             <div className="relative z-10 flex justify-center items-center gap-x-6 pt-4 mt-4">
                 {keys.map((key, index) => (
                     <div key={key} className="flex items-center gap-x-2">
-                        <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: colors[index], boxShadow: `0 0 5px ${colors[index]}` }}></div>
-                        <span className="text-gray-300 text-sm">{key}</span>
+                        <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: colors[index] }}></div>
+                        <span className="text-gray-600 text-sm">{key}</span>
                     </div>
                 ))}
             </div>

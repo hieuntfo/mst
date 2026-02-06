@@ -34,13 +34,14 @@
           extend: {
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
-              body: ['Arial', 'sans-serif'],
+              body: ['Inter', 'sans-serif'],
             },
             colors: {
               'most-red': '#CE1126',
               'most-navy': '#003971',
               'most-yellow': '#F2C94C',
               'most-secondary-bg': '#F3F6FB',
+              'most-electric-blue': '#00BFFF',
             },
             animation: {
               'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -60,7 +61,7 @@
 }
 </script>
 </head>
-  <body class="font-body bg-gray-50">
+  <body class="font-body bg-most-secondary-bg text-gray-800">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

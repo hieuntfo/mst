@@ -12,25 +12,16 @@ const annualEvents = [
   {
     title: 'Techfest Vietnam 2026',
     description: 'Ngày hội khởi nghiệp đổi mới sáng tạo quốc gia.',
-    bgColor: 'bg-indigo-50',
-    borderColor: 'hover:border-indigo-300',
-    textColor: 'text-indigo-900',
     icon: '🚀'
   },
   {
     title: 'Giải thưởng Chất lượng Quốc gia',
     description: 'Tôn vinh các tổ chức, doanh nghiệp có thành tích xuất sắc.',
-    bgColor: 'bg-amber-50',
-    borderColor: 'hover:border-amber-300',
-    textColor: 'text-amber-900',
     icon: '🏆'
   },
   {
     title: 'Hội nghị Diên Hồng',
     description: 'Đối thoại chính sách cấp cao về khoa học, công nghệ.',
-    bgColor: 'bg-sky-50',
-    borderColor: 'hover:border-sky-300',
-    textColor: 'text-sky-900',
     icon: '🏛️'
   }
 ];
@@ -54,13 +45,13 @@ const Engagement = () => {
             <p className="text-gray-600 mb-6">Khám phá các sự kiện khoa học và công nghệ nổi bật được tổ chức hàng năm.</p>
             <div className="space-y-4">
               {annualEvents.map((event, index) => (
-                <a key={index} href="#" className={`group flex items-center p-4 rounded-lg ${event.bgColor} ${event.textColor} transition-all transform border-2 border-transparent ${event.borderColor} hover:shadow-lg`}>
-                  <div className="text-3xl mr-4 bg-white p-2 rounded-md shadow-sm">{event.icon}</div>
+                <a key={index} href="#" className="group flex items-center p-4 rounded-lg bg-white transition-all transform border-2 border-gray-200 hover:border-most-red/80 hover:shadow-lg">
+                  <div className="text-3xl mr-4 bg-gray-100 p-2 rounded-md shadow-sm">{event.icon}</div>
                   <div>
-                    <h4 className="font-bold">{event.title}</h4>
-                    <p className="text-sm opacity-80">{event.description}</p>
+                    <h4 className="font-bold text-gray-900">{event.title}</h4>
+                    <p className="text-sm text-gray-600">{event.description}</p>
                   </div>
-                  <div className="ml-auto text-2xl font-light opacity-0 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 transition-all duration-300">→</div>
+                  <div className="ml-auto text-2xl font-light text-most-red opacity-0 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 transition-all duration-300">→</div>
                 </a>
               ))}
             </div>

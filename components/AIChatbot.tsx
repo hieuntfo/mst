@@ -76,13 +76,13 @@ const AIChatbot = () => {
       {isOpen && (
         <div className="fixed bottom-24 right-6 w-full max-w-sm h-3/4 max-h-[600px] bg-white rounded-xl shadow-2xl flex flex-col z-50 border border-gray-200">
           {/* Header */}
-          <div className="bg-most-navy text-white p-4 rounded-t-xl flex justify-between items-center">
+          <div className="bg-gray-100 text-most-navy p-4 rounded-t-xl flex justify-between items-center border-b border-gray-200">
             <h3 className="font-sans font-bold text-lg">Trợ lý AI - Bộ KH&CN</h3>
-            <button onClick={toggleChat} className="text-white text-2xl hover:text-gray-300">&times;</button>
+            <button onClick={toggleChat} className="text-gray-500 text-2xl hover:text-gray-800">&times;</button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
+          <div className="flex-1 p-4 overflow-y-auto bg-white">
             {messages.map((msg, index) => (
               <div key={index} className={`flex mb-4 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`rounded-lg px-4 py-2 max-w-[80%] ${msg.sender === 'user' ? 'bg-most-red text-white' : 'bg-gray-200 text-gray-800'}`}>
@@ -101,7 +101,7 @@ const AIChatbot = () => {
           </div>
 
           {/* Input */}
-          <div className="p-3 border-t bg-white rounded-b-xl">
+          <div className="p-3 border-t border-gray-200 bg-white rounded-b-xl">
             <div className="flex">
               <input
                 type="text"
@@ -109,10 +109,10 @@ const AIChatbot = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Nhập câu hỏi của bạn..."
-                className="flex-1 border rounded-l-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-most-red"
+                className="flex-1 bg-gray-100 text-gray-800 border border-gray-300 rounded-l-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-most-red"
                 disabled={isLoading}
               />
-              <button onClick={handleSend} className="bg-most-red text-white px-5 rounded-r-full hover:bg-red-700 transition-colors" disabled={isLoading}>
+              <button onClick={handleSend} className="bg-most-red text-white font-bold px-5 rounded-r-full hover:bg-red-700 transition-colors" disabled={isLoading}>
                 Gửi
               </button>
             </div>

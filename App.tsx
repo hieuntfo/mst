@@ -11,7 +11,7 @@ import AIChatbot from './components/AIChatbot';
 
 function App() {
   return (
-    <div className="bg-white text-gray-800">
+    <div className="bg-most-secondary-bg text-gray-800">
       <Header />
       <main>
         <HeroSection />

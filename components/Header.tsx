@@ -14,14 +14,14 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+    <header className="sticky top-0 bg-white shadow-sm z-50">
       <div className="relative">
         {/* ZONE A: GLOBAL NAVIGATION */}
         
         {/* Top Bar */}
         <div className="bg-most-navy text-white text-xs">
           <div className="container mx-auto py-1.5 flex justify-between items-center">
-            <a href="#" className="font-semibold hover:text-most-yellow transition-colors">CỔNG THÔNG TIN ĐIỆN TỬ CHÍNH PHỦ</a>
+            <a href="#" className="font-semibold hover:text-gray-300 transition-colors">CỔNG THÔNG TIN ĐIỆN TỬ CHÍNH PHỦ</a>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
                 <button className="flex items-center space-x-1 font-bold opacity-100">
@@ -34,7 +34,7 @@ const Header = () => {
                   <span>EN</span>
                 </button>
               </div>
-              <a href="#" className="font-medium hover:text-most-yellow transition-colors hidden sm:block">Dành cho Cán bộ</a>
+              <a href="#" className="font-medium hover:text-gray-300 transition-colors hidden sm:block">Dành cho Cán bộ</a>
             </div>
           </div>
         </div>
@@ -43,11 +43,11 @@ const Header = () => {
         <div className="container mx-auto">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center">
-              <div className="w-[150px] sm:w-auto h-14 bg-slate-200 mr-4 flex-shrink-0" aria-label="MOST Logo Placeholder"></div>
+              <div className="w-[150px] sm:w-auto h-14 bg-slate-200 rounded mr-4 flex-shrink-0" aria-label="MOST Logo Placeholder"></div>
               <div className="hidden xl:flex items-center">
                 <h1 className="text-most-navy text-lg font-extrabold leading-tight">
                   BỘ KHOA HỌC VÀ CÔNG NGHỆ<br/>
-                  <span className="text-sm font-semibold tracking-wider opacity-80">MINISTRY OF SCIENCE AND TECHNOLOGY</span>
+                  <span className="text-sm font-semibold tracking-wider text-gray-500">MINISTRY OF SCIENCE AND TECHNOLOGY</span>
                 </h1>
               </div>
             </div>
@@ -60,11 +60,11 @@ const Header = () => {
                   </a>
                 ))}
               </nav>
-              <button className="ml-4 text-most-navy p-2 rounded-full hover:bg-most-secondary-bg transition-colors">
+              <button className="ml-4 text-gray-600 p-2 rounded-full hover:bg-gray-100 transition-colors">
                 <SearchIcon className="h-5 w-5" />
               </button>
               <div className="lg:hidden ml-2">
-                 <button className="text-most-navy p-2 rounded-md hover:bg-most-secondary-bg">
+                 <button className="text-most-navy p-2 rounded-md hover:bg-gray-100">
                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
@@ -73,8 +73,8 @@ const Header = () => {
             </div>
           </div>
         </div>
-        {/* Gradient Border */}
-        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-most-yellow via-most-red to-most-navy"></div>
+        {/* Highlight Border */}
+        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gray-200"></div>
       </div>
     </header>
   );

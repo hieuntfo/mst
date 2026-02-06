@@ -18,12 +18,12 @@ const secondaryStories = [
     {
         category: "Hoạt động Lãnh đạo",
         title: "Thứ trưởng Nguyễn Hoàng Giang làm việc với đoàn chuyên gia WB",
-        imageColor: "bg-slate-200"
+        imageColor: "bg-slate-300"
     },
     {
         category: "Hợp tác quốc tế",
         title: "Tăng cường hợp tác KH&CN và đổi mới sáng tạo Việt Nam - Hoa Kỳ",
-        imageColor: "bg-slate-200"
+        imageColor: "bg-slate-300"
     },
 ];
 
@@ -36,7 +36,7 @@ const announcements = [
 
 const HeroSection = () => {
   return (
-    <section className="container mx-auto py-12">
+    <section className="bg-white text-gray-800 container mx-auto py-12">
       {/* ZONE B: HERO SECTION - RESTRUCTURED */}
       
       {/* Top Row: Main Story + Minister's Quote */}
@@ -57,13 +57,13 @@ const HeroSection = () => {
 
         {/* Right (40%) - Minister's Quote */}
         <div className="w-full lg:w-2/5">
-            <div className="bg-most-secondary-bg/70 p-8 rounded-lg h-full flex flex-col justify-center items-center text-center">
+            <div className="bg-most-secondary-bg p-8 rounded-lg h-full flex flex-col justify-center items-center text-center">
                  <div className={`w-32 h-32 rounded-full mb-6 ${ministerQuote.imageColor} border-4 border-white shadow-lg`} aria-label="Minister's portrait placeholder"></div>
                  <blockquote className="font-sans text-2xl font-semibold text-most-navy mb-4">
                      "{ministerQuote.quote}"
                  </blockquote>
                  <p className="font-semibold text-gray-800">{ministerQuote.name}</p>
-                 <p className="text-sm text-gray-600">{ministerQuote.title}</p>
+                 <p className="text-sm text-gray-500">{ministerQuote.title}</p>
             </div>
         </div>
       </div>
@@ -75,19 +75,19 @@ const HeroSection = () => {
             <a href="#" key={index} className="group">
                 <div className={`w-full h-40 rounded-lg mb-3 ${story.imageColor}`} aria-label="Secondary story image placeholder"></div>
                 <span className="text-xs font-bold text-most-red uppercase">{story.category}</span>
-                <h3 className="font-bold text-most-navy leading-tight group-hover:text-red-800 transition-colors mt-1">
+                <h3 className="font-bold text-most-navy leading-tight group-hover:text-most-red transition-colors mt-1">
                     {story.title}
                 </h3>
             </a>
         ))}
 
         {/* Announcements */}
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200/80">
+        <div className="bg-most-secondary-bg p-6 rounded-lg">
             <h3 className="font-sans text-lg font-bold text-most-navy pb-2 mb-3 border-b-2 border-most-red/50">Thông báo mới</h3>
             <ul className="space-y-2.5">
                 {announcements.map((item, index) => (
                 <li key={index}>
-                    <a href="#" className="text-sm text-gray-800 hover:text-most-red transition-colors flex items-start group">
+                    <a href="#" className="text-sm text-gray-700 hover:text-most-red transition-colors flex items-start group">
                     <svg className="w-4 h-4 mr-2 mt-0.5 text-most-red/70 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
                     <span className="group-hover:underline">{item}</span>
                     </a>

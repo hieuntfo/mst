@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Column 1: Info */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-slate-200 rounded-full mr-4" aria-label="MOST Logo Placeholder"></div>
+                <div className="w-12 h-12 bg-slate-200/50 rounded-full mr-4" aria-label="MOST Logo Placeholder"></div>
                 <h3 className="font-sans text-lg font-bold uppercase">Bộ Khoa học và Công nghệ</h3>
              </div>
             <p className="text-sm text-gray-300">

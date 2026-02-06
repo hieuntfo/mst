@@ -28,18 +28,8 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => (
         {video.duration}
       </span>
     </div>
-    <h3 className={`text-most-navy font-semibold mt-3 text-lg`}>{video.title}</h3>
+    <h3 className={`text-white font-semibold mt-3 text-lg`}>{video.title}</h3>
   </div>
-);
-
-const Particle = () => (
-  <>
-    <div className="particle"></div>
-    <div className="particle"></div>
-    <div className="particle"></div>
-    <div className="particle"></div>
-    <div className="particle"></div>
-  </>
 );
 
 const MultimediaSection = () => {
@@ -53,50 +43,20 @@ const MultimediaSection = () => {
     };
 
     return (
-        <section className="py-20">
-            <style>{`
-              @keyframes move {
-                100% {
-                    transform: translate3d(0, 0, 1px) rotate(360deg);
-                }
-              }
-
-              .particle-container {
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                position: absolute;
-                overflow: hidden;
-              }
-
-              .particle {
-                position: absolute;
-                border-radius: 50%;
-                animation: move 25s linear infinite;
-              }
-              .particle:nth-child(1) { width: 7px; height: 7px; background: rgba(255,255,255,0.3); left: 15%; top: 20%; animation-duration: 15s; }
-              .particle:nth-child(2) { width: 5px; height: 5px; background: rgba(255,255,255,0.4); left: 80%; top: 30%; animation-duration: 22s; }
-              .particle:nth-child(3) { width: 10px; height: 10px; background: rgba(255,255,255,0.2); left: 50%; top: 70%; animation-duration: 18s; }
-              .particle:nth-child(4) { width: 6px; height: 6px; background: rgba(255,255,255,0.5); left: 30%; top: 90%; animation-duration: 25s; }
-              .particle:nth-child(5) { width: 8px; height: 8px; background: rgba(255,255,255,0.3); left: 90%; top: 80%; animation-duration: 20s; }
-            `}</style>
+        <section className="bg-white py-20">
             <div className="container mx-auto">
-                <div className="relative bg-gradient-to-br from-sky-200 via-indigo-300 to-purple-400 rounded-2xl p-8 md:p-12 overflow-hidden">
-                    <div className="particle-container">
-                      <Particle />
-                    </div>
+                <div className="relative bg-most-navy rounded-2xl p-8 md:p-12 overflow-hidden">
                     <div className="relative z-10">
                         <div className="flex flex-col md:flex-row justify-between md:items-center mb-6">
                             <div>
-                                <h2 className="font-sans text-4xl font-extrabold text-most-navy">Video Nổi Bật <span className="opacity-60">&rsaquo;</span></h2>
-                                <p className="text-most-navy/80 mt-2 max-w-xl">Cập nhật các sự kiện, hội thảo và thành tựu mới nhất của Bộ Khoa học và Công nghệ qua các video tường thuật.</p>
+                                <h2 className="font-sans text-4xl font-extrabold text-white">Video Nổi Bật <span className="opacity-60">&rsaquo;</span></h2>
+                                <p className="text-gray-300 mt-2 max-w-xl">Cập nhật các sự kiện, hội thảo và thành tựu mới nhất của Bộ Khoa học và Công nghệ qua các video tường thuật.</p>
                             </div>
                             <div className="flex-shrink-0 flex space-x-2 mt-4 md:mt-0">
-                                <button onClick={() => scroll('left')} className="bg-white/30 text-most-navy p-2 rounded-full hover:bg-white/50 transition-colors backdrop-blur-sm">
+                                <button onClick={() => scroll('left')} className="bg-white/20 text-white p-2 rounded-full hover:bg-white/30 transition-colors backdrop-blur-sm">
                                     <ChevronLeftIcon className="h-6 w-6" />
                                 </button>
-                                <button onClick={() => scroll('right')} className="bg-white/30 text-most-navy p-2 rounded-full hover:bg-white/50 transition-colors backdrop-blur-sm">
+                                <button onClick={() => scroll('right')} className="bg-white/20 text-white p-2 rounded-full hover:bg-white/30 transition-colors backdrop-blur-sm">
                                     <ChevronRightIcon className="h-6 w-6" />
                                 </button>
                             </div>

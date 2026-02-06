@@ -1,5 +1,7 @@
 import React from 'react';
 import SearchIcon from './icons/SearchIcon';
+import FlagVnIcon from './icons/FlagVnIcon';
+import FlagEnIcon from './icons/FlagEnIcon';
 
 const Header = () => {
   const navItems = [
@@ -21,10 +23,16 @@ const Header = () => {
           <div className="container mx-auto py-1.5 flex justify-between items-center">
             <a href="#" className="font-semibold hover:text-most-yellow transition-colors">CỔNG THÔNG TIN ĐIỆN TỬ CHÍNH PHỦ</a>
             <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-1">
-                <button className="font-bold">VN</button>
+              <div className="flex items-center space-x-2">
+                <button className="flex items-center space-x-1 font-bold opacity-100">
+                  <FlagVnIcon className="w-5 h-auto rounded-sm" />
+                  <span>VN</span>
+                </button>
                 <span className="opacity-50">/</span>
-                <button className="opacity-70 hover:opacity-100 transition-opacity">EN</button>
+                <button className="flex items-center space-x-1 opacity-70 hover:opacity-100 transition-opacity">
+                  <FlagEnIcon className="w-5 h-auto rounded-sm" />
+                  <span>EN</span>
+                </button>
               </div>
               <a href="#" className="font-medium hover:text-most-yellow transition-colors hidden sm:block">Dành cho Cán bộ</a>
             </div>
@@ -35,8 +43,8 @@ const Header = () => {
         <div className="container mx-auto">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center">
-              <div className="w-[150px] h-14 bg-slate-200 mr-4 flex-shrink-0" aria-label="MOST Logo Placeholder"></div>
-              <div className="hidden lg:flex items-center">
+              <div className="w-[150px] sm:w-auto h-14 bg-slate-200 mr-4 flex-shrink-0" aria-label="MOST Logo Placeholder"></div>
+              <div className="hidden xl:flex items-center">
                 <h1 className="text-most-navy text-lg font-extrabold leading-tight">
                   BỘ KHOA HỌC VÀ CÔNG NGHỆ<br/>
                   <span className="text-sm font-semibold tracking-wider opacity-80">MINISTRY OF SCIENCE AND TECHNOLOGY</span>

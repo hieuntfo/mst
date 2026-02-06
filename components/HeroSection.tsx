@@ -1,26 +1,29 @@
 import React from 'react';
 
-interface NewsItem {
-  category: string;
-  title: string;
-  color: string;
-}
+const mainStory = {
+    category: "Sự kiện nổi bật",
+    title: "Hội nghị Diên Hồng: Lắng nghe ý kiến chuyên gia về phát triển AI quốc gia",
+    description: "Các chuyên gia hàng đầu trong và ngoài nước đã cùng thảo luận về chiến lược, thách thức và cơ hội để Việt Nam trở thành một trung tâm AI trong khu vực.",
+    imageColor: "bg-slate-300"
+};
 
-const leadershipNews: NewsItem[] = [
-    {
-        category: "Sự kiện nổi bật",
-        title: "Hội nghị Diên Hồng: Lắng nghe ý kiến chuyên gia về phát triển AI quốc gia",
-        color: "bg-slate-200"
-    },
+const ministerQuote = {
+    quote: "Khoa học công nghệ và đổi mới sáng tạo là động lực chính cho tăng trưởng bền vững.",
+    name: "Huỳnh Thành Đạt",
+    title: "Bộ trưởng Bộ KH&CN",
+    imageColor: "bg-slate-400"
+};
+
+const secondaryStories = [
     {
         category: "Hoạt động Lãnh đạo",
         title: "Thứ trưởng Nguyễn Hoàng Giang làm việc với đoàn chuyên gia WB",
-        color: "bg-slate-200"
+        imageColor: "bg-slate-200"
     },
     {
         category: "Hợp tác quốc tế",
         title: "Tăng cường hợp tác KH&CN và đổi mới sáng tạo Việt Nam - Hoa Kỳ",
-        color: "bg-slate-200"
+        imageColor: "bg-slate-200"
     },
 ];
 
@@ -34,65 +37,66 @@ const announcements = [
 const HeroSection = () => {
   return (
     <section className="container mx-auto px-4 py-12">
-      {/* ZONE B: HERO SECTION */}
-      <div className="flex flex-col lg:flex-row gap-8">
-        {/* Left (60%) - Minister's Message */}
-        <div className="w-full lg:w-3/5">
-            <div className="bg-most-navy text-white rounded-lg shadow-xl h-full flex flex-col md:flex-row overflow-hidden group">
-                {/* Minister's Portrait */}
-                <div className="w-full md:w-1/3 flex-shrink-0">
-                    <div 
-                      className="w-full h-48 md:h-full bg-slate-600"
-                      aria-label="Bộ trưởng Huỳnh Thành Đạt Portrait Placeholder"
-                    ></div>
-                </div>
-                {/* Minister's Message */}
-                <div className="w-full md:w-2/3 p-8 flex flex-col justify-center">
-                    <h2 className="font-sans text-sm font-bold text-most-yellow mb-2 tracking-widest">THÔNG ĐIỆP CỦA BỘ TRƯỞNG</h2>
-                    <blockquote className="font-sans text-2xl font-semibold mb-4 leading-snug">
-                        "Khoa học công nghệ và đổi mới sáng tạo là động lực chính cho tăng trưởng bền vững."
-                    </blockquote>
-                    <p className="text-gray-300 mb-6 font-light">— Huỳnh Thành Đạt, Bộ trưởng Bộ KH&CN</p>
-                    <a href="#" className="self-start bg-most-red text-white font-bold py-2 px-5 rounded-md hover:bg-red-700 transition-all transform group-hover:scale-105">
-                        Xem toàn văn
-                    </a>
-                </div>
+      {/* ZONE B: HERO SECTION - RESTRUCTURED */}
+      
+      {/* Top Row: Main Story + Minister's Quote */}
+      <div className="flex flex-col lg:flex-row gap-8 pb-8 border-b border-gray-200">
+        {/* Left (60%) - Main Story */}
+        <div className="w-full lg:w-3/5 group cursor-pointer">
+            <div className={`w-full aspect-[5/3] rounded-lg mb-4 ${mainStory.imageColor}`} aria-label="Main story image placeholder"></div>
+            <div>
+                <span className="text-sm font-bold text-most-red uppercase">{mainStory.category}</span>
+                <h1 className="font-sans text-4xl font-extrabold text-most-navy my-2 leading-tight group-hover:text-most-red transition-colors">
+                    {mainStory.title}
+                </h1>
+                <p className="text-gray-600">
+                    {mainStory.description}
+                </p>
             </div>
         </div>
 
-        {/* Right (40%) - News & Announcements */}
-        <div className="w-full lg:w-2/5 flex flex-col gap-8">
-            {/* Leadership News */}
-            <div className="flex-1">
-                <div className="space-y-4">
-                    {leadershipNews.map((item, index) => (
-                    <a href="#" key={index} className="flex items-center space-x-4 bg-white p-3 rounded-lg border border-gray-200 hover:shadow-lg hover:border-most-red transition-all transform hover:-translate-y-1 cursor-pointer group">
-                        <div className={`w-24 h-16 rounded-md flex-shrink-0 ${item.color}`} aria-label="News image placeholder"></div>
-                        <div>
-                        <span className="text-xs font-bold text-most-red uppercase">{item.category}</span>
-                        <h3 className="font-bold text-most-navy leading-tight group-hover:text-red-800 transition-colors">{item.title}</h3>
-                        </div>
-                    </a>
-                    ))}
-                </div>
-            </div>
-
-            {/* Announcements */}
-            <div className="bg-most-secondary-bg p-4 rounded-lg border border-gray-200">
-                <h3 className="font-sans text-lg font-bold text-most-navy pb-2 mb-3 border-b-2 border-most-red/50">Thông báo mới</h3>
-                <ul className="space-y-2.5">
-                    {announcements.map((item, index) => (
-                    <li key={index}>
-                        <a href="#" className="text-sm text-gray-800 hover:text-most-red transition-colors flex items-start group">
-                        <svg className="w-4 h-4 mr-2 mt-0.5 text-most-red/70 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
-                        <span className="group-hover:underline">{item}</span>
-                        </a>
-                    </li>
-                    ))}
-                </ul>
+        {/* Right (40%) - Minister's Quote */}
+        <div className="w-full lg:w-2/5">
+            <div className="bg-most-secondary-bg/70 p-8 rounded-lg h-full flex flex-col justify-center items-center text-center">
+                 <div className={`w-32 h-32 rounded-full mb-6 ${ministerQuote.imageColor} border-4 border-white shadow-lg`} aria-label="Minister's portrait placeholder"></div>
+                 <blockquote className="font-sans text-2xl font-semibold text-most-navy mb-4">
+                     "{ministerQuote.quote}"
+                 </blockquote>
+                 <p className="font-semibold text-gray-800">{ministerQuote.name}</p>
+                 <p className="text-sm text-gray-600">{ministerQuote.title}</p>
             </div>
         </div>
       </div>
+
+      {/* Bottom Row: 3 Columns */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">
+        {/* Secondary Stories */}
+        {secondaryStories.map((story, index) => (
+            <a href="#" key={index} className="group">
+                <div className={`w-full h-40 rounded-lg mb-3 ${story.imageColor}`} aria-label="Secondary story image placeholder"></div>
+                <span className="text-xs font-bold text-most-red uppercase">{story.category}</span>
+                <h3 className="font-bold text-most-navy leading-tight group-hover:text-red-800 transition-colors mt-1">
+                    {story.title}
+                </h3>
+            </a>
+        ))}
+
+        {/* Announcements */}
+        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200/80">
+            <h3 className="font-sans text-lg font-bold text-most-navy pb-2 mb-3 border-b-2 border-most-red/50">Thông báo mới</h3>
+            <ul className="space-y-2.5">
+                {announcements.map((item, index) => (
+                <li key={index}>
+                    <a href="#" className="text-sm text-gray-800 hover:text-most-red transition-colors flex items-start group">
+                    <svg className="w-4 h-4 mr-2 mt-0.5 text-most-red/70 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
+                    <span className="group-hover:underline">{item}</span>
+                    </a>
+                </li>
+                ))}
+            </ul>
+        </div>
+      </div>
+
     </section>
   );
 };

@@ -45,7 +45,7 @@ const StrategicTopics = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {topics.map((topic) => (
-            <div key={topic.title} className="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 group border-b-4 border-transparent hover:border-most-red">
+            <div key={topic.title} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 group border-b-4 border-transparent hover:border-most-red hover:shadow-2xl hover:shadow-most-navy/10">
               <div className={`w-full h-48 transition-transform duration-500 group-hover:scale-105 ${topic.color}`}></div>
               <div className="p-6">
                 <h3 className="font-sans text-xl font-bold text-most-navy mb-2">{topic.title}</h3>

@@ -19,14 +19,28 @@ const PublicServices = () => {
           <div>
             <h2 className="font-sans text-3xl font-extrabold text-most-navy mb-2">Dịch vụ công trực tuyến</h2>
             <p className="text-gray-600 mb-6">Thực hiện các thủ tục hành chính nhanh chóng, minh bạch và hiệu quả.</p>
+            
+            {/* NEW ILLUSTRATION PLACEHOLDER */}
+            <div className="relative w-full aspect-video max-h-[300px] bg-slate-100 rounded-lg mb-8 overflow-hidden group">
+              <div className="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-most-navy/10 rounded-full transition-transform duration-700 ease-out group-hover:scale-150"></div>
+              <div className="absolute top-6 left-6 w-3/5 h-10 bg-slate-200 rounded transition-transform duration-500 ease-in-out group-hover:translate-x-2"></div>
+              <div className="absolute top-20 left-6 w-2/5 h-6 bg-slate-200 rounded transition-transform duration-500 ease-in-out delay-100 group-hover:translate-x-1"></div>
+              <div className="absolute top-20 right-6 w-1/4 h-6 bg-most-red/70 rounded transition-transform duration-500 ease-in-out delay-200 group-hover:-translate-x-1"></div>
+              <div className="absolute bottom-6 left-6 w-4/5 h-20 bg-white rounded-lg shadow-md border border-slate-200 p-3 transition-all duration-500 ease-in-out group-hover:shadow-xl group-hover:border-slate-300">
+                  <div className="w-1/2 h-3 bg-slate-200 rounded mb-2"></div>
+                  <div className="w-full h-2 bg-slate-200 rounded mt-1"></div>
+                  <div className="w-3/4 h-2 bg-slate-200 rounded mt-1"></div>
+              </div>
+            </div>
+
             <div className="space-y-3">
               {services.map((service, index) => (
-                <a key={index} href="#" className="flex items-center justify-between p-4 bg-white rounded-lg border-2 border-transparent hover:border-most-red hover:shadow-lg transition-all transform hover:scale-105 group">
+                <a key={index} href="#" className="flex items-center justify-between p-4 bg-white rounded-lg border-2 border-gray-100 hover:border-most-red hover:shadow-lg transition-all transform hover:scale-[1.03] group">
                   <div className="flex items-center">
                     <span className="text-2xl mr-4">{service.icon}</span>
                     <span className="font-semibold text-gray-800">{service.text}</span>
                   </div>
-                  <span className="text-most-red font-bold text-xl opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-4 group-hover:translate-x-0">→</span>
+                  <span className="text-most-red font-bold text-xl opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-4 group-hover:translate-x-0 duration-300">→</span>
                 </a>
               ))}
             </div>

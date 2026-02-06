@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <footer className="bg-most-navy text-white border-t-4 border-most-red">
       {/* ZONE F: FOOTER */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 xl:gap-6">
           {/* Column 1: Info */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
              <div className="flex items-center mb-4">
@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-black/20">
-        <div className="container mx-auto px-4 py-4 text-center text-sm text-gray-400">
+        <div className="container mx-auto py-4 text-center text-sm text-gray-400">
           Bản quyền thuộc về Bộ Khoa học và Công nghệ &copy; 2026.
         </div>
       </div>

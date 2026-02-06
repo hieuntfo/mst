@@ -37,13 +37,13 @@ const topics: Topic[] = [
 const StrategicTopics = () => {
   return (
     <section className="bg-most-secondary-bg py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         {/* ZONE C: STRATEGIC TOPICS */}
         <div className="text-center mb-12">
           <h2 className="font-sans text-4xl font-extrabold text-most-navy">Trọng tâm Chiến lược</h2>
           <p className="text-gray-600 mt-3 max-w-2xl mx-auto">Các lĩnh vực ưu tiên, mũi nhọn trong phát triển khoa học và công nghệ quốc gia, thúc đẩy Việt Nam hội nhập và phát triển.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 xl:gap-6">
           {topics.map((topic) => (
             <div key={topic.title} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 group border-b-4 border-transparent hover:border-most-red hover:shadow-2xl hover:shadow-most-navy/10">
               <div className={`w-full h-48 transition-transform duration-500 group-hover:scale-105 ${topic.color}`}></div>

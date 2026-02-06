@@ -11,6 +11,26 @@
     <script>
       tailwind.config = {
         theme: {
+          screens: {
+            'sm': '576px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1200px',
+            '2xl': '1440px',
+          },
+          container: {
+            center: true,
+            padding: {
+              DEFAULT: '1rem', // 16px margin for mobile
+              md: '1.5rem',     // 24px margin for tablet
+            },
+            screens: {
+               // On screens smaller than xl, container is fluid (100% width)
+               // with padding providing the margins.
+               xl: '1140px',  // max-width for laptop/desktop
+               '2xl': '1320px', // max-width for large desktop
+            },
+          },
           extend: {
             fontFamily: {
               sans: ['Inter', 'sans-serif'],

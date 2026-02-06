@@ -12,9 +12,9 @@ const services = [
 const PublicServices = () => {
   return (
     <section className="bg-white py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         {/* ZONE D: PUBLIC SERVICES */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5 xl:gap-6 items-start">
           {/* Left: Online Public Services */}
           <div>
             <h2 className="font-sans text-3xl font-extrabold text-most-navy mb-2">Dịch vụ công trực tuyến</h2>

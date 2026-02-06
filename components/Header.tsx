@@ -18,7 +18,7 @@ const Header = () => {
         
         {/* Top Bar */}
         <div className="bg-most-navy text-white text-xs">
-          <div className="container mx-auto px-4 py-1.5 flex justify-between items-center">
+          <div className="container mx-auto py-1.5 flex justify-between items-center">
             <a href="#" className="font-semibold hover:text-most-yellow transition-colors">CỔNG THÔNG TIN ĐIỆN TỬ CHÍNH PHỦ</a>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-1">
@@ -32,7 +32,7 @@ const Header = () => {
         </div>
 
         {/* Main Menu & Search */}
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center">
               <div className="w-[150px] h-14 bg-slate-200 mr-4 flex-shrink-0" aria-label="MOST Logo Placeholder"></div>

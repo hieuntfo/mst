@@ -36,11 +36,11 @@ const announcements = [
 
 const HeroSection = () => {
   return (
-    <section className="container mx-auto px-4 py-12">
+    <section className="container mx-auto py-12">
       {/* ZONE B: HERO SECTION - RESTRUCTURED */}
       
       {/* Top Row: Main Story + Minister's Quote */}
-      <div className="flex flex-col lg:flex-row gap-8 pb-8 border-b border-gray-200">
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-5 xl:gap-6 pb-8 border-b border-gray-200">
         {/* Left (60%) - Main Story */}
         <div className="w-full lg:w-3/5 group cursor-pointer">
             <div className={`w-full aspect-[5/3] rounded-lg mb-4 ${mainStory.imageColor}`} aria-label="Main story image placeholder"></div>
@@ -69,7 +69,7 @@ const HeroSection = () => {
       </div>
 
       {/* Bottom Row: 3 Columns */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-5 xl:gap-6 pt-8">
         {/* Secondary Stories */}
         {secondaryStories.map((story, index) => (
             <a href="#" key={index} className="group">

@@ -1,16 +1,36 @@
 import React, { useState } from 'react';
-import ChevronLeftIcon from './icons/ChevronLeftIcon';
-import ChevronRightIcon from './icons/ChevronRightIcon';
 
 const ministryUnits = [
-  { name: 'Cục Tân số vô tuyến điện', logoColor: 'bg-red-100' },
-  { name: 'Ủy ban Tiêu chuẩn Đo lường', logoColor: 'bg-yellow-100' },
-  { name: 'Cục An toàn bức xạ và hạt nhân', logoColor: 'bg-blue-100' },
-  { name: 'Cục Công nghiệp công nghệ thông tin', logoColor: 'bg-indigo-100' },
-  { name: 'Trường Cao đẳng Thông tin', logoColor: 'bg-sky-100' },
-  { name: 'Quỹ phát triển khoa học', logoColor: 'bg-green-100' },
-  { name: 'Viện Công nghệ phần mềm', logoColor: 'bg-purple-100' },
-  { name: 'Trung tâm Internet Việt Nam', logoColor: 'bg-pink-100' },
+  { 
+    name: 'Cục Báo chí', 
+    description: 'Quản lý nhà nước về hoạt động báo chí, thông tin điện tử.', 
+    logoColor: 'bg-red-100' 
+  },
+  { 
+    name: 'Cục Tần số Vô tuyến điện', 
+    description: 'Quản lý và cấp phép sử dụng tần số vô tuyến điện quốc gia.', 
+    logoColor: 'bg-yellow-100' 
+  },
+  { 
+    name: 'Cục An toàn bức xạ và hạt nhân', 
+    description: 'Đảm bảo an toàn, an ninh trong lĩnh vực năng lượng nguyên tử.', 
+    logoColor: 'bg-blue-100' 
+  },
+  { 
+    name: 'Cục Công nghiệp CNTT', 
+    description: 'Thúc đẩy phát triển công nghiệp công nghệ thông tin và truyền thông.', 
+    logoColor: 'bg-indigo-100' 
+  },
+  { 
+    name: 'Trung tâm Internet Việt Nam', 
+    description: 'Quản lý tài nguyên Internet quốc gia (tên miền, địa chỉ IP).', 
+    logoColor: 'bg-pink-100' 
+  },
+  { 
+    name: 'Quỹ phát triển khoa học', 
+    description: 'Hỗ trợ tài chính cho các hoạt động nghiên cứu khoa học.', 
+    logoColor: 'bg-green-100' 
+  },
 ];
 
 const partners = [
@@ -24,72 +44,69 @@ const partners = [
   { name: 'VinGroup', logoColor: 'bg-slate-200' },
 ];
 
-const LogoCarousel = ({ title, items }: { title: string, items: { name: string, logoColor: string }[] }) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 6;
-  const totalPages = Math.ceil(items.length / itemsPerPage);
-
-  const handlePrev = () => {
-    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
-  };
-  const handleNext = () => {
-    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
-  };
-  
-  const startIndex = currentPage * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const visibleItems = items.slice(startIndex, endIndex);
+const InteractiveDirectory = () => {
+  const [selectedUnit, setSelectedUnit] = useState(ministryUnits[0]);
 
   return (
     <div className="py-12">
-      <div className="flex justify-between items-center mb-6">
-        <h3 className="font-sans text-2xl font-bold text-most-red">{title}</h3>
-        <div className="flex items-center space-x-4">
-          <div className="flex space-x-2">
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <button key={i} onClick={() => setCurrentPage(i)} className={`w-2.5 h-2.5 rounded-full ${currentPage === i ? 'bg-most-red' : 'bg-gray-300'} transition-colors`}></button>
+      <h3 className="font-sans text-3xl font-extrabold text-most-navy text-center mb-8">Cổng thông tin điện tử các đơn vị thuộc Bộ</h3>
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        {/* Left Column: List of Units */}
+        <div className="md:w-1/3 border-r border-gray-200 pr-4">
+          <ul className="space-y-1">
+            {ministryUnits.map((unit) => (
+              <li key={unit.name}>
+                <button
+                  onMouseEnter={() => setSelectedUnit(unit)}
+                  className={`w-full text-left p-3 rounded-md transition-colors text-sm font-semibold ${selectedUnit.name === unit.name ? 'bg-most-red text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+                >
+                  {unit.name}
+                </button>
+              </li>
             ))}
-          </div>
-          <div className="flex space-x-2">
-            <button onClick={handlePrev} className="bg-gray-200 text-gray-700 p-2 rounded-full hover:bg-gray-300 transition-colors">
-                <ChevronLeftIcon className="h-5 w-5" />
-            </button>
-            <button onClick={handleNext} className="bg-gray-200 text-gray-700 p-2 rounded-full hover:bg-gray-300 transition-colors">
-                <ChevronRightIcon className="h-5 w-5" />
-            </button>
-          </div>
+          </ul>
         </div>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5 xl:gap-6">
-        {/* Using a key on the grid div to force re-render on page change for a simple fade effect */}
-        {visibleItems.map((item) => (
-           <div key={item.name} className="animate-[fadeIn_0.5s_ease-in-out]">
-             <a href="#" className="block p-4 border border-gray-200 bg-white rounded-lg text-center hover:shadow-lg hover:border-most-red transition-all h-full flex flex-col items-center justify-center">
-                <div className={`w-20 h-12 rounded ${item.logoColor} mb-3`} aria-label={`${item.name} logo placeholder`}></div>
-                <p className="text-sm font-semibold text-gray-700">{item.name}</p>
-             </a>
-           </div>
-        ))}
-        {/* Placeholder for animation key */}
-        <style>{`
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
+        {/* Right Column: Details of Selected Unit */}
+        <div className="md:w-2/3 flex flex-col justify-center items-center text-center p-4">
+            <div className={`w-32 h-20 rounded-lg ${selectedUnit.logoColor} mb-4`} aria-label={`${selectedUnit.name} logo placeholder`}></div>
+            <h4 className="text-xl font-bold text-most-navy">{selectedUnit.name}</h4>
+            <p className="text-gray-600 mt-2 h-16">{selectedUnit.description}</p>
+            <a href="#" className="mt-4 bg-most-navy text-white font-bold py-2 px-5 rounded-full hover:bg-most-red transition-colors text-sm">
+              Truy cập
+            </a>
+        </div>
       </div>
     </div>
   );
 };
 
+const LogoWall = () => {
+    return (
+        <div className="py-12">
+            <h3 className="font-sans text-3xl font-extrabold text-most-navy text-center mb-8">Doanh nghiệp đồng hành</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-4 md:gap-5 xl:gap-6">
+                {partners.map(partner => (
+                    <div key={partner.name} className="group relative">
+                        <div className="aspect-video flex items-center justify-center p-4 bg-white rounded-lg border border-gray-200 grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-110 group-hover:shadow-lg group-hover:border-most-red/50">
+                           <div className={`w-24 h-12 rounded ${partner.logoColor}`} aria-label={`${partner.name} logo placeholder`}></div>
+                        </div>
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 bg-most-navy text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                            {partner.name}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
 
 const PartnersSection = () => {
     return (
         <section className="bg-most-secondary-bg">
             <div className="container mx-auto">
-                <LogoCarousel title="Cổng thông tin điện tử các đơn vị thuộc Bộ" items={ministryUnits} />
-                <div className="border-t border-gray-200"></div>
-                <LogoCarousel title="Doanh nghiệp đồng hành" items={partners} />
+                <InteractiveDirectory />
+                <div className="border-t border-gray-200 my-8"></div>
+                <LogoWall />
             </div>
         </section>
     );

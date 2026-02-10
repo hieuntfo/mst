@@ -8,9 +8,9 @@ const mainStory = {
 };
 
 const ministerQuote = {
-    quote: "Khoa học công nghệ và đổi mới sáng tạo là động lực chính cho tăng trưởng bền vững.",
-    name: "Huỳnh Thành Đạt",
-    title: "Bộ trưởng Bộ KH&CN",
+    quote: "Quốc gia tăng trưởng nhanh và bền vững không phải vì có nhiều tài nguyên hơn, mà vì có khả năng thiết kế hệ sinh thái liên tục sinh ra động lực tăng trưởng mới.",
+    name: "Nguyễn Mạnh Hùng",
+    title: "Bộ trưởng Bộ Thông tin và Truyền thông",
     imageColor: "bg-slate-400"
 };
 
